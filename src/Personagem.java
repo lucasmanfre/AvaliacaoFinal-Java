@@ -56,7 +56,7 @@ public abstract class Personagem {
     public void setForca(int forca) {
         this.forca = forca;
     }
-
+    
     
     @Override
     public String toString() {

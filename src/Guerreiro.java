@@ -10,7 +10,7 @@ public class Guerreiro extends Personagem {
         this.bonusVida = bonusVida;
     }
 
-    public float getBonusVida() {
+    public int getBonusVida() {
         return bonusVida;
     }
 

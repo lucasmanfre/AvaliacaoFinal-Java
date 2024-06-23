@@ -10,7 +10,7 @@ public class Mago extends Personagem {
         this.bonusAtaque = bonusAtaque;
     }
 
-    public float getBonusAtaque() {
+    public int getBonusAtaque() {
         return bonusAtaque;
     }
 

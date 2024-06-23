@@ -66,7 +66,7 @@ public class Main {
         
         String nome4 = Console.lerString("Informe o nome do vilao: ");
         
-        Vilao v1 = new Vilao(nome4, "Vilao", 1, 100, 40, "Demonio" );
+        Vilao v1 = new Vilao(nome4, "Vilao", 1, 100, 40, 60);
         CadastroPersonagem.cadastrarVilao(v1);
 
         try {
