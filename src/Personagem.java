@@ -60,6 +60,11 @@ public abstract class Personagem {
     
     @Override
     public String toString() {
+        return "nome=" + nome + ", classe=" + classe + ", nivel=" + nivel + ", pontosVida=" + pontosVida
+                + ", forca=" + forca;
+    }
+
+    public String exibirDados() {
         return "\nNome: " + nome +
         "\nClasse: " + classe + 
         "\nNivel: " + nivel +
