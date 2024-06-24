@@ -16,7 +16,7 @@ public abstract class Db {
 
     public static void salvarGuerreiroNoArquivo() throws IOException {
 
-        ArrayList<Guerreiro> listaGuerreiro = CadastroPersonagem.getListaGuerreiro();
+        ArrayList<Guerreiro> listaGuerreiro = GerenciadorPersonagem.getListaGuerreiro();
 
         try (FileWriter fWriter = new FileWriter(ARQUIVOGUERREIRO);
                 BufferedWriter bWriter = new BufferedWriter(fWriter)) {
@@ -33,7 +33,7 @@ public abstract class Db {
 
     public static void salvarMagoNoArquivo() throws IOException {
 
-        ArrayList<Mago> listaMago = CadastroPersonagem.getListaMago();
+        ArrayList<Mago> listaMago = GerenciadorPersonagem.getListaMago();
 
         try (FileWriter fWriter = new FileWriter(ARQUIVOMAGO);
                 BufferedWriter bWriter = new BufferedWriter(fWriter)) {
@@ -50,7 +50,7 @@ public abstract class Db {
 
     public static void salvarSuporteNoArquivo() throws IOException {
 
-        ArrayList<Suporte> listaSuporte = CadastroPersonagem.getListaSuporte();
+        ArrayList<Suporte> listaSuporte = GerenciadorPersonagem.getListaSuporte();
 
         try (FileWriter fWriter = new FileWriter(ARQUIVOSUPORTE);
                 BufferedWriter bWriter = new BufferedWriter(fWriter)) {
@@ -67,7 +67,7 @@ public abstract class Db {
 
     public static void salvarVilaoNoArquivo() throws IOException {
 
-        ArrayList<Vilao> listaVilao = CadastroPersonagem.getListaVilao();
+        ArrayList<Vilao> listaVilao = GerenciadorPersonagem.getListaVilao();
 
         try (FileWriter fWriter = new FileWriter(ARQUIVOVILAO);
                 BufferedWriter bWriter = new BufferedWriter(fWriter)) {
@@ -90,7 +90,7 @@ public abstract class Db {
 
     public static void lerGuerreiroDoArquivo() throws IOException {
 
-        ArrayList<Guerreiro> listaGuerreiro = CadastroPersonagem.getListaGuerreiro();
+        ArrayList<Guerreiro> listaGuerreiro = GerenciadorPersonagem.getListaGuerreiro();
         listaGuerreiro.clear();
 
         try (FileReader frReader = new FileReader(ARQUIVOGUERREIRO);
@@ -102,7 +102,7 @@ public abstract class Db {
 
                 Guerreiro tempGuerreiro = new Guerreiro();
                 tempGuerreiro.fromString(linha);
-                CadastroPersonagem.cadastrarGuerreiro(tempGuerreiro);
+                GerenciadorPersonagem.cadastrarGuerreiro(tempGuerreiro);
 
             }
 
@@ -112,7 +112,7 @@ public abstract class Db {
 
     public static void lerMagoDoArquivo() throws IOException {
 
-        ArrayList<Mago> listaMago = CadastroPersonagem.getListaMago();
+        ArrayList<Mago> listaMago = GerenciadorPersonagem.getListaMago();
         listaMago.clear();
 
         try (FileReader frReader = new FileReader(ARQUIVOMAGO);
@@ -124,7 +124,7 @@ public abstract class Db {
 
                 Mago tempMago = new Mago();
                 tempMago.fromString(linha);
-                CadastroPersonagem.cadastrarMago(tempMago);
+                GerenciadorPersonagem.cadastrarMago(tempMago);
 
             }
 
@@ -134,7 +134,7 @@ public abstract class Db {
 
     public static void lerSuporteDoArquivo() throws IOException {
 
-        ArrayList<Suporte> listaSuporte = CadastroPersonagem.getListaSuporte();
+        ArrayList<Suporte> listaSuporte = GerenciadorPersonagem.getListaSuporte();
         listaSuporte.clear();
 
         try (FileReader frReader = new FileReader(ARQUIVOSUPORTE);
@@ -146,7 +146,7 @@ public abstract class Db {
 
                 Suporte tempSuporte = new Suporte();
                 tempSuporte.fromString(linha);
-                CadastroPersonagem.cadastrarSuporte(tempSuporte);
+                GerenciadorPersonagem.cadastrarSuporte(tempSuporte);
 
             }
 
@@ -156,7 +156,7 @@ public abstract class Db {
 
     public static void lerVilaoDoArquivo() throws IOException {
 
-        ArrayList<Vilao> listaVilao = CadastroPersonagem.getListaVilao();
+        ArrayList<Vilao> listaVilao = GerenciadorPersonagem.getListaVilao();
         listaVilao.clear();
 
         try (FileReader frReader = new FileReader(ARQUIVOVILAO);
@@ -168,7 +168,7 @@ public abstract class Db {
 
                 Vilao tempVilao = new Vilao();
                 tempVilao.fromString(linha);
-                CadastroPersonagem.cadastrarVilao(tempVilao);
+                GerenciadorPersonagem.cadastrarVilao(tempVilao);
 
             }
 

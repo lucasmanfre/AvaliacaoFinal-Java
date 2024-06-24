@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class CadastroPersonagem {
+public class GerenciadorPersonagem {
     
     private static ArrayList<Guerreiro> listaGuerreiro = new ArrayList<>();
     private static ArrayList<Mago> listaMago = new ArrayList<>();
