@@ -1,6 +1,6 @@
 public class Sistema {
 
-    //-------------------------------------------------MENU-PRINCIPAL------------------------------------------
+    //----------------------------------------------------------------------------MENU-PRINCIPAL------------------------------------------
     
     private static void exibirMenu(){
 
@@ -14,7 +14,7 @@ public class Sistema {
 
     }
 
-    //----------------------------------MENU-DE-CADASTRO-DOS-PERSONAGENS-E-SEUS-MÉTODOS-----------------------------------
+    //------------------------------------------------------MENU-DE-CADASTRO-DOS-PERSONAGENS-E-SEUS-MÉTODOS-----------------------------------
 
     private static void menuCadastroPersonagem(){
 
@@ -123,7 +123,7 @@ public class Sistema {
 
     }
 
-    //--------------------------------------MENU-EDIÇÃO-DE-PERSONAGENS-E-SEUS-MÉTODOS---------------------------------------------------------------------------
+    //----------------------------------------------------------MENU-EDIÇÃO-DE-PERSONAGENS-E-SEUS-MÉTODOS---------------------------------------------------------------------------
 
     private static void menuEditarPersonagem(){
 
@@ -215,6 +215,91 @@ public class Sistema {
         }
     }
 
+    private static void editarNomeGuerreiro(Guerreiro busca){
+
+        try {  
+                       
+            String nome = Console.lerString("\nInforme o novo nome: ");
+                                    
+            busca.setNome(nome);
+                        
+            Db.salvarGuerreiroNoArquivo();
+            
+            System.out.println("\nGuerreiro atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarNivelGuerreiro(Guerreiro busca){
+
+        try {  
+                       
+            int nivel = Console.lerInt("\nInforme o novo nivel: ");
+                                    
+            busca.setNivel(nivel);
+                        
+            Db.salvarGuerreiroNoArquivo();
+            
+            System.out.println("\nGuerreiro atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarPontosVidaGuerreiro(Guerreiro busca){
+
+        try {  
+                       
+            int pontosVida = Console.lerInt("\nInforme os novos pontos de vida: ");
+                                    
+            busca.setPontosVida(pontosVida);
+                        
+            Db.salvarGuerreiroNoArquivo();
+            
+            System.out.println("\nGuerreiro atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarForcaGuerreiro(Guerreiro busca){
+
+        try {  
+                       
+            int atributoAtaque = Console.lerInt("\nInforme o novo atributo de ataque: ");
+                                    
+            busca.setForca(atributoAtaque);
+                        
+            Db.salvarGuerreiroNoArquivo();
+            
+            System.out.println("\nGuerreiro atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    } 
+
+    private static void editarBonusVidaGuerreiro(Guerreiro busca){
+
+        try {  
+                       
+            int bonusVida = Console.lerInt("\nInforme o novo bônus de vida: ");
+                                    
+            busca.setBonusVida(bonusVida);
+                        
+            Db.salvarGuerreiroNoArquivo();
+            
+            System.out.println("\nGuerreiro atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
     private static void editarMago(Mago busca){
        
         try {  
@@ -296,15 +381,15 @@ public class Sistema {
         }
     }
     
-    //-------------------------------MENU-BUSCAR-PERSONAGENS-E-SEUS-MÉTODOS--------------------------------------------
+    //----------------------------------------------------------MENU-BUSCAR-PERSONAGENS-E-SEUS-MÉTODOS--------------------------------------------
 
     private static void menuBuscarPersonagem(){
 
         System.out.println("\nMenu Buscar");
-        System.out.println("1)Buscar Guerreiro");
-        System.out.println("2)Buscar Mago");
-        System.out.println("3)Buscar Suporte");
-        System.out.println("4)Buscar Vilão");
+        System.out.println("1) Buscar Guerreiro");
+        System.out.println("2) Buscar Mago");
+        System.out.println("3) Buscar Suporte");
+        System.out.println("4) Buscar Vilão");
         System.out.println("0) Voltar");
 
     }
@@ -373,6 +458,85 @@ public class Sistema {
         
     }
 
+    //------------------------------------------------------------------MENU-EXCLUIR-PERSONAGENS---------------------------------------------------------------------------------------
+
+    private static void menuExcluirPersonagem(){
+
+        System.out.println("\nMenu Excluir");
+        System.out.println("1) Guerreiro");
+        System.out.println("2) Mago");
+        System.out.println("3) Suporte");
+        System.out.println("4) Vilão");
+        System.out.println("0) Voltar");
+
+    }
+
+    private static void excluirGuerreiro(Guerreiro busca){
+
+        try {  
+            
+            GerenciadorPersonagem.removerGuerreiro(busca);
+
+            Db.salvarSuporteNoArquivo();
+            
+            System.out.println("\nGuerreiro " + busca.getNome() + " excluído com sucesso!");
+          
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void excluirMago(Mago busca){
+
+        try {  
+            
+            GerenciadorPersonagem.removerMago(busca);
+
+            Db.salvarSuporteNoArquivo();
+            
+            System.out.println("\nMago " + busca.getNome() + " excluído com sucesso!");
+          
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void excluirSuporte(Suporte busca){
+
+        try {  
+            
+            GerenciadorPersonagem.removerSuporte(busca);
+
+            Db.salvarSuporteNoArquivo();
+            
+            System.out.println("\nSuporte " + busca.getNome() + " excluído com sucesso!");
+          
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void excluirVilao(Vilao busca){
+
+        try {  
+            
+            GerenciadorPersonagem.removerVilao(busca);
+
+            Db.salvarSuporteNoArquivo();
+            
+            System.out.println("\nVilao " + busca.getNome() + " excluído com sucesso!");
+          
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+
 
 
 }
+
