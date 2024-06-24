@@ -129,7 +129,7 @@ public class Sistema {
 
     private static void menuEditarPersonagem(){
 
-        System.out.println("\nMenu de Edição do Personagem");
+        System.out.println("\nMENU DE EDIÇÃO DO PERSONAGEM");
         System.out.println("1) Editar Guerreiro");
         System.out.println("2) Editar Mago");
         System.out.println("3) Editar Suporte");
@@ -140,52 +140,52 @@ public class Sistema {
 
     private static void menuEditarGuerreiro(){
 
-        System.out.println("\nMenu de Edição do Guerreiro");
+        System.out.println("\nMENU DE EDIÇÃO DO GUERREIRO");
         System.out.println("1) Editar o nome");
         System.out.println("2) Editar o nível");
         System.out.println("3) Editar pontos de vida");
         System.out.println("4) Editar o atributo de ataque");
         System.out.println("5) Editar a vida bônus");
-        System.out.println("6) Editar todos");
+        System.out.println("6) Editar tudo");
         System.out.println("0) Voltar");
 
     }
 
     private static void menuEditarMago(){
 
-        System.out.println("\nMenu de Edição do Mago");
+        System.out.println("\nMENU DE EDIÇÃO DO MAGO");
         System.out.println("1) Editar o nome");
         System.out.println("2) Editar o nível");
         System.out.println("3) Editar pontos de vida");
         System.out.println("4) Editar o atributo de ataque");
         System.out.println("5) Editar o ataque bônus");
-        System.out.println("6) Editar todos");
+        System.out.println("6) Editar tudo");
         System.out.println("0) Voltar");
 
     }
 
     private static void menuEditarSuporte(){
 
-        System.out.println("\nMenu de Edição do Suporte");
+        System.out.println("\nMENU DE EDIÇÃO DO SUPORTE");
         System.out.println("1) Editar o nome");
         System.out.println("2) Editar o nível");
         System.out.println("3) Editar pontos de vida");
         System.out.println("4) Editar o atributo de ataque");
         System.out.println("5) Editar a cura bônus");
-        System.out.println("6) Editar todos");
+        System.out.println("6) Editar tudo");
         System.out.println("0) Voltar");
 
     }
 
     private static void menuEditarVilao(){
 
-        System.out.println("\nMenu de Edição do Vilao");
+        System.out.println("\nMENU DE EDIÇÃO DO VILÃO");
         System.out.println("1) Editar o nome");
         System.out.println("2) Editar o nível");
         System.out.println("3) Editar pontos de vida");
         System.out.println("4) Editar o atributo de ataque");
         System.out.println("5) Editar o atributo poder do mal");
-        System.out.println("6) Editar todos");
+        System.out.println("6) Editar tudo");
         System.out.println("0) Voltar");
 
     }
@@ -329,6 +329,91 @@ public class Sistema {
         }
     }
 
+    private static void editarNomeMago(Mago busca){
+
+        try {  
+                       
+            String nome = Console.lerString("\nInforme o novo nome: ");
+                                    
+            busca.setNome(nome);
+                        
+            Db.salvarMagoNoArquivo();
+            
+            System.out.println("\nMago atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarNivelMago(Mago busca){
+
+        try {  
+                       
+            int nivel = Console.lerInt("\nInforme o novo nível: ");
+                                    
+            busca.setNivel(nivel);
+                        
+            Db.salvarMagoNoArquivo();
+            
+            System.out.println("\nMago atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarPontosVidaMago(Mago busca){
+
+        try {  
+                       
+            int pontosVida = Console.lerInt("\nInforme os novos pontos de vida: ");
+                                    
+            busca.setPontosVida(pontosVida);
+                        
+            Db.salvarMagoNoArquivo();
+            
+            System.out.println("\nMago atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarForcaMago(Mago busca){
+
+        try {  
+                       
+            int atributoAtaque = Console.lerInt("\nInforme o novo atributo de ataque: ");
+                                    
+            busca.setForca(atributoAtaque);
+                        
+            Db.salvarMagoNoArquivo();
+            
+            System.out.println("\nMago atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    } 
+
+    private static void editarBonusAtaqueMago(Mago busca){
+
+        try {  
+                       
+            int bonusAtaque = Console.lerInt("\nInforme o novo bônus de ataque: ");
+                                    
+            busca.setBonusAtaque(bonusAtaque);
+                        
+            Db.salvarMagoNoArquivo();
+            
+            System.out.println("\nMago atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
     private static void editarSuporte(Suporte busca){
        
         try {  
@@ -347,6 +432,91 @@ public class Sistema {
             busca.setForca(atributoAtaque);
             busca.setCura(bonusCura);
             
+            Db.salvarSuporteNoArquivo();
+            
+            System.out.println("\nSuporte atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarNomeSuporte(Suporte busca){
+
+        try {  
+                       
+            String nome = Console.lerString("\nInforme o novo nome: ");
+                                    
+            busca.setNome(nome);
+                        
+            Db.salvarSuporteNoArquivo();
+            
+            System.out.println("\nSuporte atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarNivelSuporte(Suporte busca){
+
+        try {  
+                       
+            int nivel = Console.lerInt("\nInforme o novo nível: ");
+                                    
+            busca.setNivel(nivel);
+                        
+            Db.salvarSuporteNoArquivo();
+            
+            System.out.println("\nSuporte atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarPontosVidaSuporte(Suporte busca){
+
+        try {  
+                       
+            int pontosVida = Console.lerInt("\nInforme os novos pontos de vida: ");
+                                    
+            busca.setPontosVida(pontosVida);
+                        
+            Db.salvarSuporteNoArquivo();
+            
+            System.out.println("\nSuporte atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarForcaSuporte(Suporte busca){
+
+        try {  
+                       
+            int atributoAtaque = Console.lerInt("\nInforme o novo atributo de ataque: ");
+                                    
+            busca.setForca(atributoAtaque);
+                        
+            Db.salvarSuporteNoArquivo();
+            
+            System.out.println("\nSuporte atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    } 
+
+    private static void editarBonusAtaqueSuporte(Suporte busca){
+
+        try {  
+                       
+            int bonusCura = Console.lerInt("\nInforme o novo bônus de cura: ");
+                                    
+            busca.setCura(bonusCura);
+                        
             Db.salvarSuporteNoArquivo();
             
             System.out.println("\nSuporte atualizado: " + busca.exibirDados() + "\n");
@@ -383,6 +553,91 @@ public class Sistema {
         }
     }
     
+    private static void editarNomeVilao(Vilao busca){
+
+        try {  
+                       
+            String nome = Console.lerString("\nInforme o novo nome: ");
+                                    
+            busca.setNome(nome);
+                        
+            Db.salvarVilaoNoArquivo();
+            
+            System.out.println("\nVilão atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarNivelVilao(Vilao busca){
+
+        try {  
+                       
+            int nivel = Console.lerInt("\nInforme o novo nível: ");
+                                    
+            busca.setNivel(nivel);
+                        
+            Db.salvarVilaoNoArquivo();
+            
+            System.out.println("\nVilão atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarPontosVidaVilao(Vilao busca){
+
+        try {  
+                       
+            int pontosVida = Console.lerInt("\nInforme os novos pontos de vida: ");
+                                    
+            busca.setPontosVida(pontosVida);
+                        
+            Db.salvarVilaoNoArquivo();
+            
+            System.out.println("\nVilão atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private static void editarForcaVilao(Vilao busca){
+
+        try {  
+                       
+            int atributoAtaque = Console.lerInt("\nInforme o novo atributo de ataque: ");
+                                    
+            busca.setForca(atributoAtaque);
+                        
+            Db.salvarVilaoNoArquivo();
+            
+            System.out.println("\nVilão atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    } 
+
+    private static void editarBonusAtaqueVilao(Vilao busca){
+
+        try {  
+                       
+            int poderDoMal = Console.lerInt("\nInforme o novo bônus de poder do mal: ");
+                                    
+            busca.setPoderDoMal(poderDoMal);
+                        
+            Db.salvarVilaoNoArquivo();
+            
+            System.out.println("\nVilão atualizado: " + busca.exibirDados() + "\n");
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
 //----------------------------------------------------------MENU-LISTAR-PERSONAGENS-E-SEUS-MÉTODOS--------------------------------------------
 
     private static void menuListarPersonagem(){
