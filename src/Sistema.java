@@ -39,7 +39,7 @@ public class Sistema {
         int bonusVida = Console.lerInt("Quantidade de vida bônus: ");
 
         Guerreiro novoGuerreiro = new Guerreiro(nomeGuerreiro, "Guerreiro", nivelGuerreiro, pontosVidaGuerreiro, atributoAtaqueGuerreiro, bonusVida);
-        GerenciadorPersonagem.cadastrarGuerreiro(novoGuerreiro);
+        CadastroPersonagem.cadastrarGuerreiro(novoGuerreiro);
 
         try {
 
@@ -63,7 +63,7 @@ public class Sistema {
         int ataqueBonus = Console.lerInt("Quantidade de ataque bônus: ");
 
         Mago novoMago = new Mago(nomeMago, "Mago", nivelMago, pontosVidaMago, atributoAtaqueMago, ataqueBonus);
-        GerenciadorPersonagem.cadastrarMago(novoMago);
+        CadastroPersonagem.cadastrarMago(novoMago);
 
         try {
 
@@ -87,7 +87,7 @@ public class Sistema {
         int curaBonus = Console.lerInt("Quantidade de cura bônus: ");
 
         Suporte novoSuporte = new Suporte(nomeSuporte, "Suporte", nivelSuporte, pontosVidaSuporte, atributoAtaqueSuporte, curaBonus);
-        GerenciadorPersonagem.cadastrarSuporte(novoSuporte);
+        CadastroPersonagem.cadastrarSuporte(novoSuporte);
 
         try {
 
@@ -111,7 +111,7 @@ public class Sistema {
         int poderDoMal = Console.lerInt("Quantidade de poder do mal: ");
 
         Vilao novoVilao = new Vilao(nomeVilao, "Vilao", nivelVilao, pontosVidaVilao, atributoAtaqueVilao, poderDoMal);
-        GerenciadorPersonagem.cadastrarVilao(novoVilao);
+        CadastroPersonagem.cadastrarVilao(novoVilao);
 
         try {
 
@@ -692,9 +692,9 @@ public class Sistema {
 
         try {
             
-            GerenciadorPersonagem.verificarListaGuerreiroVazia();
+            CadastroPersonagem.verificarListaGuerreiroVazia();
             String nome = Console.lerString("Informe o nome do guerreiro: ");
-            Guerreiro busca = GerenciadorPersonagem.buscarGuerreiro(nome);
+            Guerreiro busca = CadastroPersonagem.buscarGuerreiro(nome);
             System.out.println("Guerreiro localizado: " + busca.exibirDados());
 
         } catch (Exception exception) {
@@ -707,9 +707,9 @@ public class Sistema {
 
         try {
             
-            GerenciadorPersonagem.verificarListaMagoVazia();
+            CadastroPersonagem.verificarListaMagoVazia();
             String nome = Console.lerString("Informe o nome do Mago: ");
-            Mago busca = GerenciadorPersonagem.buscarMago(nome);
+            Mago busca = CadastroPersonagem.buscarMago(nome);
             System.out.println("Mago localizado: " + busca.exibirDados());
 
         } catch (Exception exception) {
@@ -722,9 +722,9 @@ public class Sistema {
 
         try {
             
-            GerenciadorPersonagem.verificarListaSuporteVazia();
+            CadastroPersonagem.verificarListaSuporteVazia();
             String nome = Console.lerString("Informe o nome do Suporte: ");
-            Suporte busca = GerenciadorPersonagem.buscarSuporte(nome);
+            Suporte busca = CadastroPersonagem.buscarSuporte(nome);
             System.out.println("Suporte localizado: " + busca.exibirDados());
             
         } catch (Exception exception) {
@@ -737,9 +737,9 @@ public class Sistema {
 
         try {
             
-            GerenciadorPersonagem.verificarListaVilaoVazia();
+            CadastroPersonagem.verificarListaVilaoVazia();
             String nome = Console.lerString("Informe o nome do Vilão: ");
-            Vilao busca = GerenciadorPersonagem.buscarVilao(nome);
+            Vilao busca = CadastroPersonagem.buscarVilao(nome);
             System.out.println("Vilão localizado: " + busca.exibirDados());
 
         } catch (Exception exception) {
@@ -750,10 +750,10 @@ public class Sistema {
 
     private static void listarTodosGuerreiros(){
 
-        ArrayList<Guerreiro> listaGuerreiros = GerenciadorPersonagem.getListaGuerreiro();
+        ArrayList<Guerreiro> listaGuerreiros = CadastroPersonagem.getListaGuerreiro();
 
         try {
-            GerenciadorPersonagem.verificarListaGuerreiroVazia();
+            CadastroPersonagem.verificarListaGuerreiroVazia();
             
             System.out.println("\nGuerreiros cadastrados:");
             for (Guerreiro tempGuerreiro : listaGuerreiros) {
@@ -770,10 +770,10 @@ public class Sistema {
 
     private static void listarTodosMagos(){
 
-        ArrayList<Mago> listaMagos = GerenciadorPersonagem.getListaMago();
+        ArrayList<Mago> listaMagos = CadastroPersonagem.getListaMago();
 
         try {
-            GerenciadorPersonagem.verificarListaMagoVazia();
+            CadastroPersonagem.verificarListaMagoVazia();
             
             System.out.println("\nMagos cadastrados:");
             for (Mago tempMago : listaMagos) {
@@ -790,10 +790,10 @@ public class Sistema {
 
     private static void listarTodosSuportes(){
 
-        ArrayList<Suporte> listaSuportes = GerenciadorPersonagem.getListaSuporte();
+        ArrayList<Suporte> listaSuportes = CadastroPersonagem.getListaSuporte();
 
         try {
-            GerenciadorPersonagem.verificarListaSuporteVazia();
+            CadastroPersonagem.verificarListaSuporteVazia();
             
             System.out.println("\nSuportes cadastrados:");
             for (Suporte tempSuporte : listaSuportes) {
@@ -810,10 +810,10 @@ public class Sistema {
 
     private static void listarTodosViloes(){
 
-        ArrayList<Vilao> listaViloes = GerenciadorPersonagem.getListaVilao();
+        ArrayList<Vilao> listaViloes = CadastroPersonagem.getListaVilao();
 
         try {
-            GerenciadorPersonagem.verificarListaVilaoVazia();
+            CadastroPersonagem.verificarListaVilaoVazia();
             
             System.out.println("\nVilões cadastrados:");
             for (Vilao tempVilao : listaViloes) {
@@ -830,10 +830,10 @@ public class Sistema {
 
     private static void listarTodosPersonagens() {
 
-        ArrayList<Personagem> listaPersonagens = GerenciadorPersonagem.getListaPersonagens();
+        ArrayList<Personagem> listaPersonagens = CadastroPersonagem.getListaPersonagens();
 
         try {
-            GerenciadorPersonagem.verificarListaPersonagemVazia();
+            CadastroPersonagem.verificarListaPersonagemVazia();
             
             System.out.println("\nPersonagens cadastrados:");
             for (Personagem Personagem : listaPersonagens) {
@@ -901,7 +901,7 @@ public class Sistema {
 
         try {  
             
-            GerenciadorPersonagem.removerGuerreiro(busca);
+            CadastroPersonagem.removerGuerreiro(busca);
 
             Db.salvarSuporteNoArquivo();
             
@@ -917,7 +917,7 @@ public class Sistema {
 
         try {  
             
-            GerenciadorPersonagem.removerMago(busca);
+            CadastroPersonagem.removerMago(busca);
 
             Db.salvarSuporteNoArquivo();
             
@@ -933,7 +933,7 @@ public class Sistema {
 
         try {  
             
-            GerenciadorPersonagem.removerSuporte(busca);
+            CadastroPersonagem.removerSuporte(busca);
 
             Db.salvarSuporteNoArquivo();
             
@@ -949,7 +949,7 @@ public class Sistema {
 
         try {  
             
-            GerenciadorPersonagem.removerVilao(busca);
+            CadastroPersonagem.removerVilao(busca);
 
             Db.salvarSuporteNoArquivo();
             
@@ -963,11 +963,11 @@ public class Sistema {
 
     private static void excluirTodosGuerreiros(){
 
-        ArrayList<Guerreiro> listaGuerreiros = GerenciadorPersonagem.getListaGuerreiro();
+        ArrayList<Guerreiro> listaGuerreiros = CadastroPersonagem.getListaGuerreiro();
 
         try {
 
-            GerenciadorPersonagem.verificarListaGuerreiroVazia();            
+            CadastroPersonagem.verificarListaGuerreiroVazia();            
             listaGuerreiros.clear();
             System.out.println("Guerreiros excluídos com sucesso! "); 
 
@@ -980,11 +980,11 @@ public class Sistema {
 
     private static void excluirTodosMagos(){
 
-        ArrayList<Mago> listaMagos = GerenciadorPersonagem.getListaMago();
+        ArrayList<Mago> listaMagos = CadastroPersonagem.getListaMago();
 
         try {
 
-            GerenciadorPersonagem.verificarListaMagoVazia();            
+            CadastroPersonagem.verificarListaMagoVazia();            
             listaMagos.clear();
             System.out.println("Magos excluídos com sucesso! "); 
 
@@ -997,11 +997,11 @@ public class Sistema {
 
     private static void excluirTodosSuportes(){
 
-        ArrayList<Suporte> listaSuportes = GerenciadorPersonagem.getListaSuporte();
+        ArrayList<Suporte> listaSuportes = CadastroPersonagem.getListaSuporte();
 
         try {
 
-            GerenciadorPersonagem.verificarListaSuporteVazia();            
+            CadastroPersonagem.verificarListaSuporteVazia();            
             listaSuportes.clear();
             System.out.println("Suportes excluídos com sucesso! "); 
 
@@ -1014,11 +1014,11 @@ public class Sistema {
 
     private static void excluirTodosViloes(){
 
-        ArrayList<Vilao> listaViloes = GerenciadorPersonagem.getListaVilao();
+        ArrayList<Vilao> listaViloes = CadastroPersonagem.getListaVilao();
 
         try {
 
-            GerenciadorPersonagem.verificarListaVilaoVazia();            
+            CadastroPersonagem.verificarListaVilaoVazia();            
             listaViloes.clear();
             System.out.println("Vilões excluídos com sucesso! "); 
 
