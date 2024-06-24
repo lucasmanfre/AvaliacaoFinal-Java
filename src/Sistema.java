@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class Sistema {
 
-    //----------------------------------------------------------------------------MENU-PRINCIPAL------------------------------------------
+//----------------------------------------------------------------------------MENU-PRINCIPAL------------------------------------------
     
     private static void exibirMenu(){
 
@@ -14,7 +16,7 @@ public class Sistema {
 
     }
 
-    //------------------------------------------------------MENU-DE-CADASTRO-DOS-PERSONAGENS-E-SEUS-MÉTODOS-----------------------------------
+//------------------------------------------------------MENU-DE-CADASTRO-DOS-PERSONAGENS-E-SEUS-MÉTODOS-----------------------------------
 
     private static void menuCadastroPersonagem(){
 
@@ -123,7 +125,7 @@ public class Sistema {
 
     }
 
-    //----------------------------------------------------------MENU-EDIÇÃO-DE-PERSONAGENS-E-SEUS-MÉTODOS---------------------------------------------------------------------------
+//----------------------------------------------------------MENU-EDIÇÃO-DE-PERSONAGENS-E-SEUS-MÉTODOS---------------------------------------------------------------------------
 
     private static void menuEditarPersonagem(){
 
@@ -381,84 +383,197 @@ public class Sistema {
         }
     }
     
-    //----------------------------------------------------------MENU-BUSCAR-PERSONAGENS-E-SEUS-MÉTODOS--------------------------------------------
+//----------------------------------------------------------MENU-LISTAR-PERSONAGENS-E-SEUS-MÉTODOS--------------------------------------------
 
-    private static void menuBuscarPersonagem(){
+    private static void menuListarPersonagem(){
 
-        System.out.println("\nMenu Buscar");
-        System.out.println("1) Buscar Guerreiro");
-        System.out.println("2) Buscar Mago");
-        System.out.println("3) Buscar Suporte");
-        System.out.println("4) Buscar Vilão");
+        System.out.println("\nMenu Listar");
+        System.out.println("1) Listar Guerreiro");
+        System.out.println("2) Listar Mago");
+        System.out.println("3) Listar Suporte");
+        System.out.println("4) Listar Vilão");
+        System.out.println("5) Listar Todos");
         System.out.println("0) Voltar");
 
     }
-    
-    private static Guerreiro buscarGuerreiro(){
+
+    private static void menuListarGuerreiro(){
+
+        System.out.println("\nMenu lista Guerreiro");
+        System.out.println("1) Listar guerreiro específico");
+        System.out.println("2) Listar todos os Guerreiros");
+        System.out.println("0) Voltar");
+
+    }
+
+    private static void menuListarMago(){
+
+        System.out.println("\nMenu lista Mago");
+        System.out.println("1) Listar mago específico");
+        System.out.println("2) Listar todos os magos");
+        System.out.println("0) Voltar");
+
+    }
+
+    private static void menuListarSuporte(){
+
+        System.out.println("\nMenu lista Suporte");
+        System.out.println("1) Listar suporte específico");
+        System.out.println("2) Listar todos os suportes");
+        System.out.println("0) Voltar");
+
+    }
+
+    private static void menuListarVilao(){
+
+        System.out.println("\nMenu lista Vilão");
+        System.out.println("1) Listar vilão específico");
+        System.out.println("2) Listar todos os Vilões");
+        System.out.println("0) Voltar");
+
+    }
+
+    private static void listarGuerreiro(){
 
         try {
             
             GerenciadorPersonagem.verificarListaGuerreiroVazia();
             String nome = Console.lerString("Informe o nome do guerreiro: ");
             Guerreiro busca = GerenciadorPersonagem.buscarGuerreiro(nome);
-            return busca;
-            
+            System.out.println("Guerreiro localizado: " + busca.exibirDados());
+
         } catch (Exception exception) {
-            System.out.println(exception.getMessage());
-            return null;
+            System.out.println(exception.getMessage());  
         }
-        
+
     }
 
-    private static Mago buscarMago(){
+    private static void listarMago(){
 
         try {
             
             GerenciadorPersonagem.verificarListaMagoVazia();
             String nome = Console.lerString("Informe o nome do Mago: ");
             Mago busca = GerenciadorPersonagem.buscarMago(nome);
-            return busca;
-            
+            System.out.println("Mago localizado: " + busca.exibirDados());
+
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return null;
         }
-        
+
     }
 
-    private static Suporte buscarSuporte(){
+    private static void listarSuporte(){
 
         try {
             
             GerenciadorPersonagem.verificarListaSuporteVazia();
             String nome = Console.lerString("Informe o nome do Suporte: ");
             Suporte busca = GerenciadorPersonagem.buscarSuporte(nome);
-            return busca;
+            System.out.println("Suporte localizado: " + busca.exibirDados());
             
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return null;
         }
-        
+
     }
 
-    private static Vilao buscarVilao(){
+    private static void listarVilao(){
 
         try {
             
             GerenciadorPersonagem.verificarListaVilaoVazia();
-            String nome = Console.lerString("Informe o nome do Vilao: ");
+            String nome = Console.lerString("Informe o nome do Vilão: ");
             Vilao busca = GerenciadorPersonagem.buscarVilao(nome);
-            return busca;
-            
+            System.out.println("Vilão localizado: " + busca.exibirDados());
+
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return null;
         }
-        
+
     }
 
-    //------------------------------------------------------------------MENU-EXCLUIR-PERSONAGENS---------------------------------------------------------------------------------------
+    private static void listarTodosGuerreiros(){
+
+        ArrayList<Guerreiro> listaGuerreiros = GerenciadorPersonagem.getListaGuerreiro();
+
+        try {
+            GerenciadorPersonagem.verificarListaGuerreiroVazia();
+            
+            System.out.println("\nGuerreiros cadastrados:");
+            for (Guerreiro tempGuerreiro : listaGuerreiros) {
+    
+                System.out.println(tempGuerreiro.exibirDados());
+            }
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+    }
+
+    private static void listarTodosMagos(){
+
+        ArrayList<Mago> listaMagos = GerenciadorPersonagem.getListaMago();
+
+        try {
+            GerenciadorPersonagem.verificarListaMagoVazia();
+            
+            System.out.println("\nMagos cadastrados:");
+            for (Mago tempMago : listaMagos) {
+    
+                System.out.println(tempMago.exibirDados());
+            }
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+    }
+
+    private static void listarTodosSuportes(){
+
+        ArrayList<Suporte> listaSuportes = GerenciadorPersonagem.getListaSuporte();
+
+        try {
+            GerenciadorPersonagem.verificarListaSuporteVazia();
+            
+            System.out.println("\nSuportes cadastrados:");
+            for (Suporte tempSuporte : listaSuportes) {
+    
+                System.out.println(tempSuporte.exibirDados());
+            }
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+    }
+
+    private static void listarTodosViloes(){
+
+        ArrayList<Vilao> listaViloes = GerenciadorPersonagem.getListaVilao();
+
+        try {
+            GerenciadorPersonagem.verificarListaVilaoVazia();
+            
+            System.out.println("\nVilões cadastrados:");
+            for (Vilao tempVilao : listaViloes) {
+    
+                System.out.println(tempVilao.exibirDados());
+            }
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+    }
+
+//------------------------------------------------------------------MENU-EXCLUIR-PERSONAGENS---------------------------------------------------------------------------------------
 
     private static void menuExcluirPersonagem(){
 
@@ -534,9 +649,6 @@ public class Sistema {
             System.out.println(exception.getMessage());
         }
     }
-
-
-
 
 }
 
