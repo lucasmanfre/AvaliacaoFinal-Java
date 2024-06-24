@@ -828,15 +828,71 @@ public class Sistema {
 
     }
 
+    private static void listarTodosPersonagens() {
+
+        ArrayList<Personagem> listaPersonagens = GerenciadorPersonagem.getListaPersonagens();
+
+        try {
+            GerenciadorPersonagem.verificarListaPersonagemVazia();
+            
+            System.out.println("\nPersonagens cadastrados:");
+            for (Personagem Personagem : listaPersonagens) {
+    
+                System.out.println(Personagem.exibirDados());
+            }
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }       
+
+    }
+
 //------------------------------------------------------------------MENU-EXCLUIR-PERSONAGENS---------------------------------------------------------------------------------------
 
     private static void menuExcluirPersonagem(){
 
-        System.out.println("\nMenu Excluir");
+        System.out.println("\nMENU EXCLUIR");
         System.out.println("1) Guerreiro");
         System.out.println("2) Mago");
         System.out.println("3) Suporte");
         System.out.println("4) Vilão");
+        System.out.println("0) Voltar");
+
+    }
+
+    private static void menuExcluirGuerreiros(){
+
+        System.out.println("\nMENU EXCLUIR GUERREIROS");
+        System.out.println("1) Excluir um guerreiro");
+        System.out.println("2) Excluir todos os guerreiros");
+        System.out.println("0) Voltar");
+
+    }
+
+    private static void menuExcluirMagos(){
+
+        System.out.println("\nMENU EXCLUIR MAGOS");
+        System.out.println("1) Excluir um mago");
+        System.out.println("2) Excluir todos os magos");
+        System.out.println("0) Voltar");
+
+    }
+
+    private static void menuExcluirSuportes(){
+
+        System.out.println("\nMENU EXCLUIR SUPORTES");
+        System.out.println("1) Excluir um suporte");
+        System.out.println("2) Excluir todos os suportes");
+        System.out.println("0) Voltar");
+
+    }
+
+    private static void menuExcluirViloes(){
+
+        System.out.println("\nMENU EXCLUIR VILÕES");
+        System.out.println("1) Excluir um vilão");
+        System.out.println("2) Excluir todos os vilões");
         System.out.println("0) Voltar");
 
     }
@@ -903,6 +959,74 @@ public class Sistema {
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
+    }
+
+    private static void excluirTodosGuerreiros(){
+
+        ArrayList<Guerreiro> listaGuerreiros = GerenciadorPersonagem.getListaGuerreiro();
+
+        try {
+
+            GerenciadorPersonagem.verificarListaGuerreiroVazia();            
+            listaGuerreiros.clear();
+            System.out.println("Guerreiros excluídos com sucesso! "); 
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+    }
+
+    private static void excluirTodosMagos(){
+
+        ArrayList<Mago> listaMagos = GerenciadorPersonagem.getListaMago();
+
+        try {
+
+            GerenciadorPersonagem.verificarListaMagoVazia();            
+            listaMagos.clear();
+            System.out.println("Magos excluídos com sucesso! "); 
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+    }
+
+    private static void excluirTodosSuportes(){
+
+        ArrayList<Suporte> listaSuportes = GerenciadorPersonagem.getListaSuporte();
+
+        try {
+
+            GerenciadorPersonagem.verificarListaSuporteVazia();            
+            listaSuportes.clear();
+            System.out.println("Suportes excluídos com sucesso! "); 
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
+    }
+
+    private static void excluirTodosViloes(){
+
+        ArrayList<Vilao> listaViloes = GerenciadorPersonagem.getListaVilao();
+
+        try {
+
+            GerenciadorPersonagem.verificarListaVilaoVazia();            
+            listaViloes.clear();
+            System.out.println("Vilões excluídos com sucesso! "); 
+
+        } catch (Exception exception) {
+
+            System.out.println(exception.getMessage());
+        }
+
     }
 
 }

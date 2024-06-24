@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 public class GerenciadorPersonagem {
-    
+
+    private static ArrayList<Personagem> listaPersonagem = new ArrayList<>();    
     private static ArrayList<Guerreiro> listaGuerreiro = new ArrayList<>();
     private static ArrayList<Mago> listaMago = new ArrayList<>();
     private static ArrayList<Suporte> listaSuporte = new ArrayList<>();
@@ -48,6 +49,10 @@ public class GerenciadorPersonagem {
     // ---------------------------------------
 
     // --------------- BUSCAR ---------------
+
+    public static ArrayList<Personagem> getListaPersonagens() {
+        return listaPersonagem;
+    }
 
     public static Guerreiro buscarGuerreiro(String nome) throws Exception{
         
@@ -108,6 +113,12 @@ public class GerenciadorPersonagem {
     // ---------------------------------------
 
     // --------------- VERIFICAR SE ESTÁ VAZIO ---------------
+
+    public static void verificarListaPersonagemVazia() throws Exception{
+        if (listaPersonagem.isEmpty()){
+            throw new Exception("\nNão há personagens cadastrados");
+        }
+    }
 
     public static void verificarListaGuerreiroVazia() throws Exception{
         if (listaGuerreiro.isEmpty()){
