@@ -1,0 +1,1 @@
+nome=Gilberto, classe=Guerreiro, nivel=5, pontosVida=50, forca=8, bonusVida=10
