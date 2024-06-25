@@ -1,12 +1,16 @@
+package Ferramentas;
+
+import Personagens.*;
+
 import java.util.ArrayList;
 
 public class CadastroPersonagem {
 
-    private static ArrayList<Personagem> listaPersonagem = new ArrayList<>();    
-    private static ArrayList<Guerreiro> listaGuerreiro = new ArrayList<>();
-    private static ArrayList<Mago> listaMago = new ArrayList<>();
-    private static ArrayList<Suporte> listaSuporte = new ArrayList<>();
-    private static ArrayList<Vilao> listaVilao = new ArrayList<>();
+    private static final ArrayList<Personagem> listaPersonagem = new ArrayList<>();
+    private static final ArrayList<Guerreiro> listaGuerreiro = new ArrayList<>();
+    private static final ArrayList<Mago> listaMago = new ArrayList<>();
+    private static final ArrayList<Suporte> listaSuporte = new ArrayList<>();
+    private static final ArrayList<Vilao> listaVilao = new ArrayList<>();
 
     // --------------- CADASTRO ---------------
 
@@ -64,7 +68,7 @@ public class CadastroPersonagem {
 
         }
 
-        throw new Exception("\nGuerreiro não encontrado");
+        throw new Exception("\nPersonagens.Guerreiro não encontrado");
 
     }
 
@@ -78,7 +82,7 @@ public class CadastroPersonagem {
 
         }
 
-        throw new Exception("\nMago não encontrado");
+        throw new Exception("\nPersonagens.Mago não encontrado");
 
     }
 
@@ -92,7 +96,7 @@ public class CadastroPersonagem {
 
         }
 
-        throw new Exception("\nSuporte não encontrado");
+        throw new Exception("\nPersonagens.Suporte não encontrado");
 
     }
 

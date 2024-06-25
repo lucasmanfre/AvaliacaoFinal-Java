@@ -1,3 +1,10 @@
+package Ferramentas;
+
+import Personagens.Guerreiro;
+import Personagens.Mago;
+import Personagens.Suporte;
+import Personagens.Vilao;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,10 +14,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Db {
-    private static final String ARQUIVOGUERREIRO = "guerreiros.txt";
-    private static final String ARQUIVOMAGO = "magos.txt";
-    private static final String ARQUIVOSUPORTE = "suportes.txt";
-    private static final String ARQUIVOVILAO = "viloes.txt";
+    private static final String ARQUIVOGUERREIRO = "Dbs/guerreiros.txt";
+    private static final String ARQUIVOMAGO = "Dbs/magos.txt";
+    private static final String ARQUIVOSUPORTE = "Dbs/suportes.txt";
+    private static final String ARQUIVOVILAO = "Dbs/viloes.txt";
 
     //------------- SALVAR NO ARQUIVO -------------
 

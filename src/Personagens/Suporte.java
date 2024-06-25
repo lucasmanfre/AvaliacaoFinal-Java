@@ -1,4 +1,6 @@
-public class Suporte extends Personagem{
+package Personagens;
+
+public class Suporte extends Personagem {
     
     private int cura;
 

@@ -1,3 +1,10 @@
+package Ferramentas;
+
+import Personagens.Mago;
+import Personagens.Personagem;
+import Personagens.Suporte;
+import Personagens.Vilao;
+
 import java.util.Random;
 
 public class Combate {
