@@ -10,17 +10,18 @@ public class Sistema {
 
     private static void exibirMenu() {
 
-        System.out.println("\nSimulador combate");
+        System.out.println("\nArena do Gui");
         System.out.println("1) Cadastrar personagem");
         System.out.println("2) Editar personagem");
         System.out.println("3) Lista de personagens");
-        System.out.println("4) System.Combate");
+        System.out.println("4) Combate");
         System.out.println("5) Deletar personagem");
         System.out.println("0) Sair");
 
     }
 
-    private static void menuPrincipal(int op) throws Exception {
+    private static void menuPrincipal() throws Exception {
+        int op = Console.lerInt("Informe uma opção:");
         int opMenu;
 //        CadastroPersonagem.verificarListaPersonagemVazia();
         switch (op) {
@@ -39,7 +40,8 @@ public class Sistema {
                 opMenu = Console.lerInt("Infome uma opção:");
                 switchListarPersonagem(opMenu);
                 break;
-            case 4: //menu de combate
+            case 4:
+                iniciarCombateMenu();
                 break;
             case 5:
                 menuExcluirPersonagem();
@@ -910,7 +912,6 @@ public class Sistema {
 
             System.out.println(exception.getMessage());
         }
-
     }
 
     private static void listarTodosMagos() {
@@ -1238,6 +1239,76 @@ public class Sistema {
 
     }
 
+//------------------------------------------------------------------MENU-COMBATE---------------------------------------------------------------------------------------
+
+    private static Personagem escolherPersonagem() throws Exception {
+        String nome;
+        int escolhaClasse;
+
+        System.out.println("\n1. Guerreiro");
+        System.out.println("2. Mago");
+        System.out.println("3. Suporte");
+        escolhaClasse = Console.lerInt("\nEscolha a classe do personagem para o combate:");
+
+        switch (escolhaClasse) {
+            case 1:
+                try {
+                    CadastroPersonagem.verificarListaGuerreiroVazia();
+                    listarTodosGuerreiros();
+                    nome = Console.lerString("\nEscolha o guerreiro para o combate: ");
+                    return CadastroPersonagem.buscarGuerreiro(nome);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    return escolherPersonagem();
+                }
+            case 2:
+                try {
+                    CadastroPersonagem.verificarListaMagoVazia();
+                    listarTodosMagos();
+                    nome = Console.lerString("\nEscolha o mago para o combate: ");
+                    return CadastroPersonagem.buscarMago(nome);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    return escolherPersonagem();
+                }
+            case 3:
+                try {
+                    CadastroPersonagem.verificarListaSuporteVazia();
+                    listarTodosSuportes();
+                    nome = Console.lerString("\nEscolha o suporte para o combate: ");
+                    return CadastroPersonagem.buscarSuporte(nome);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    return escolherPersonagem();
+                }
+            default:
+                System.out.println("Escolha inválida!");
+                return escolherPersonagem();
+        }
+    }
+
+    private static Vilao escolherVilao() throws Exception {
+        try {
+            listarTodosViloes();
+            String nome = Console.lerString("Informe o nome do Vilão: ");
+            return CadastroPersonagem.buscarVilao(nome);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return escolherVilao();
+        }
+    }
+
+    private static void iniciarCombateMenu() {
+        try {
+            Personagem personagem = escolherPersonagem();
+            Vilao vilao = escolherVilao();
+            System.out.println("entrou devagarinho");
+            Combate combate = new Combate(personagem, vilao);
+            combate.iniciarCombate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 //------------------------------------------------------------------EXECUTAR-PROGRAMA---------------------------------------------------------------------------------------
 
     public static void executar() throws Exception {
@@ -1253,8 +1324,7 @@ public class Sistema {
         }
         while (true) {
             exibirMenu();
-            int op = Console.lerInt("Informe uma opção:");
-            menuPrincipal(op);
+            menuPrincipal();
         }
 
     }

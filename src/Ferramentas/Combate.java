@@ -1,9 +1,6 @@
 package Ferramentas;
 
-import Personagens.Mago;
-import Personagens.Personagem;
-import Personagens.Suporte;
-import Personagens.Vilao;
+import Personagens.*;
 
 import java.util.Random;
 
@@ -20,7 +17,12 @@ public class Combate {
     }
 
     public void iniciarCombate() {
-        
+        if (personagem instanceof Guerreiro){
+            personagem.setPontosVida(personagem.getPontosVida() + ((Guerreiro) personagem).getBonusVida());
+            System.out.println(personagem.getNome() + " está enfurecido!");
+            System.out.println("recebeu " + ((Guerreiro) personagem).getBonusVida() + " pontos de vida...");
+        }
+
         while (personagem.getPontosVida() > 0 && vilao.getPontosVida() > 0) {
             realizarAtaque(personagem, vilao);
             if (vilao.getPontosVida() > 0) {
@@ -29,9 +31,9 @@ public class Combate {
         }
 
         if (personagem.getPontosVida() <= 0) {
-            System.out.println(vilao.getNome());
+            System.out.println(vilao.getNome() + " Ganhou!!!");
         } else {
-            System.out.println(personagem.getNome());
+            System.out.println(personagem.getNome() + " Ganhou!!!");
         }
     }
 
@@ -41,13 +43,14 @@ public class Combate {
             dano += aplicarHabilidadeEspecial(atacante);
         }
         defensor.setPontosVida(defensor.getPontosVida() - dano);
+        System.out.println(atacante.getNome() + " atacou " + defensor.getNome() + " causando " + dano + " de dano. Pontos de vida de " + defensor.getNome() + ": " + defensor.getPontosVida());
     }
 
     private int aplicarHabilidadeEspecial(Personagem personagem) {
  
         if (personagem instanceof Mago) {
             int bonusAtaque = ((Mago) personagem).getBonusAtaque();
-            System.out.println(personagem.getNome() + " ativou sua habilidade especial: Bônus de Vida!");
+            System.out.println(personagem.getNome() + " ativou sua habilidade especial: Bola de Fogo!");
             return bonusAtaque;
         } else if (personagem instanceof Suporte) {
             int cura = ((Suporte) personagem).getCura();

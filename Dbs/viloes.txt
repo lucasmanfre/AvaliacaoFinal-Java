@@ -1,0 +1,1 @@
+nome=Magnesio, classe=Personagens.Vilao, nivel=5, pontosVida=120, forca=15, poderDoMal=30

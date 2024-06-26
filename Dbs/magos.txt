@@ -1,0 +1,1 @@
+nome=Batman, classe=Personagens.Mago, nivel=3, pontosVida=70, forca=30, bonusAtaque=15
