@@ -1,27 +1,28 @@
-public class Guerreiro extends Personagem {
-    
-    private int bonusVida;
+package Personagens;
 
-    public Guerreiro() {
+public class Mago extends Personagem {
+    
+    private int bonusAtaque;
+
+    public Mago() {
     }
 
-    public Guerreiro(String nome, String classe, int nivel, int pontosVida, int forca, int bonusVida) {
+    public Mago(String nome, String classe, int nivel, int pontosVida, int forca, int bonusAtaque) {
         super(nome, classe, nivel, pontosVida, forca);
-        this.bonusVida = bonusVida;
+        this.bonusAtaque = bonusAtaque;
     }
 
-    public int getBonusVida() {
-        return bonusVida;
+    public int getBonusAtaque() {
+        return bonusAtaque;
     }
 
-    public void setBonusVida(int bonusVida) {
-        this.bonusVida = bonusVida;
+    public void setBonusAtaque(int bonusAtaque) {
+        this.bonusAtaque = bonusAtaque;
     }
 
-    
     @Override
     public String toString() {
-        return super.toString() + ", bonusVida=" + bonusVida;
+        return super.toString() + ", bonusAtaque=" + bonusAtaque;
     }
 
     public void fromString(String linha){
@@ -32,16 +33,17 @@ public class Guerreiro extends Personagem {
         setNivel(Integer.parseInt(partes[2].split("=")[1]));
         setPontosVida(Integer.parseInt(partes[3].split("=")[1]));
         setForca(Integer.parseInt(partes[4].split("=")[1]));
-        setBonusVida(Integer.parseInt(partes[5].split("=")[1]));
+        setBonusAtaque(Integer.parseInt(partes[5].split("=")[1]));
     }
 
     @Override
     public String exibirDados() {
         return super.exibirDados() + 
-        "\nBonus de vida:" + bonusVida;
+        "\nBonus de ataque:" + bonusAtaque;
     }
 
+    
 
-
+    
 
 }

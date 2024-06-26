@@ -1,0 +1,3 @@
+nome=Gilberto, classe=Personagens.Guerreiro, nivel=5, pontosVida=50, forca=8, bonusVida=10
+nome=Roberto, classe=Personagens.Guerreiro, nivel=10, pontosVida=100, forca=12, bonusVida=10
+nome=Felipe, classe=Personagens.Guerreiro, nivel=0, pontosVida=2, forca=69, bonusVida=10000
