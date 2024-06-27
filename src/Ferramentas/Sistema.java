@@ -1073,6 +1073,7 @@ public class Sistema {
                         String nomeG = Console.lerString("Informe o nome do Guerreiro: ");
                         Guerreiro guerreiro = CadastroPersonagem.buscarGuerreiro(nomeG);
                         excluirGuerreiro(guerreiro);
+                        Db.salvarGuerreiroNoArquivo();
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -1089,6 +1090,7 @@ public class Sistema {
                         String nomeM = Console.lerString("Informe o nome do Mago: ");
                         Mago mago = CadastroPersonagem.buscarMago(nomeM);
                         excluirMago(mago);
+                        Db.salvarMagoNoArquivo();
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -1105,6 +1107,7 @@ public class Sistema {
                         String nomeS = Console.lerString("Informe o nome do Suporte: ");
                         Suporte suporte = CadastroPersonagem.buscarSuporte(nomeS);
                         excluirSuporte(suporte);
+                        Db.salvarSuporteNoArquivo();
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -1121,6 +1124,7 @@ public class Sistema {
                         String nomeV = Console.lerString("Informe o nome do Vilão: ");
                         Vilao vilao = CadastroPersonagem.buscarVilao(nomeV);
                         excluirVilao(vilao);
+                        Db.salvarVilaoNoArquivo();
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
