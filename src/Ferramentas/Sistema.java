@@ -191,34 +191,66 @@ public class Sistema {
 //----------------------------------------------------------MENU-EDIÇÃO-DE-PERSONAGENS-E-SEUS-MÉTODOS---------------------------------------------------------------------------
 
     private static void switchEditarPersonagem(int opEditar) throws Exception {
-        switch (opEditar) {
-            case 1:
-                String nomeG = Console.lerString("Informe o nome do guerreiro que deseja alterar:");
-                Guerreiro guerreiro = CadastroPersonagem.buscarGuerreiro(nomeG);
-                editarGuerreiro(guerreiro);
-                break;
-            case 2:
-                String nomeM = Console.lerString("Informe o nome do mago que deseja alterar:");
-                Mago mago = CadastroPersonagem.buscarMago(nomeM);
-                editarMago(mago);
-                break;
-            case 3:
-                String nomeS = Console.lerString("Informe o nome do suporte que deseja alterar:");
-                Suporte suporte = CadastroPersonagem.buscarSuporte(nomeS);
-                editarSuporte(suporte);
-                break;
-            case 4:
-                String nomeV = Console.lerString("Informe o nome do vilão que deseja alterar:");
-                Vilao vilao = CadastroPersonagem.buscarVilao(nomeV);
-                editarVilao(vilao);
-                break;
-            case 0:
-                System.out.println("Voltando...");
-                return;
-            default:
-                System.out.println("Opção invalida...");
-                System.out.println("Tente novamente");
-                break;
+        try {
+            switch (opEditar) {
+                case 1:
+                    try {
+                        CadastroPersonagem.verificarListaGuerreiroVazia();
+                        listarTodosGuerreiros();
+                        String nomeG = Console.lerString("Informe o nome do guerreiro que deseja alterar:");
+                        Guerreiro guerreiro = CadastroPersonagem.buscarGuerreiro(nomeG);
+                        editarGuerreiro(guerreiro);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        return;
+                    }
+                    break;
+                case 2:
+                    try {
+                        CadastroPersonagem.verificarListaMagoVazia();
+                        listarTodosMagos();
+                        String nomeM = Console.lerString("Informe o nome do mago que deseja alterar:");
+                        Mago mago = CadastroPersonagem.buscarMago(nomeM);
+                        editarMago(mago);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        return;
+                    }
+                    break;
+                case 3:
+                    try {
+                        CadastroPersonagem.verificarListaSuporteVazia();
+                        listarTodosSuportes();
+                        String nomeS = Console.lerString("Informe o nome do suporte que deseja alterar:");
+                        Suporte suporte = CadastroPersonagem.buscarSuporte(nomeS);
+                        editarSuporte(suporte);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        return;
+                    }
+                    break;
+                case 4:
+                    try {
+                        CadastroPersonagem.verificarListaVilaoVazia();
+                        listarTodosViloes();
+                        String nomeV = Console.lerString("Informe o nome do vilão que deseja alterar:");
+                        Vilao vilao = CadastroPersonagem.buscarVilao(nomeV);
+                        editarVilao(vilao);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        return;
+                    }
+                    break;
+                case 0:
+                    System.out.println("Voltando...");
+                    return;
+                default:
+                    System.out.println("Opção inválida...");
+                    System.out.println("Tente novamente");
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -799,41 +831,41 @@ public class Sistema {
 
     }
 
-    private static void menuListarGuerreiro() {
-
-        System.out.println("\nMenu lista Personagens.Guerreiro");
-        System.out.println("1) Listar guerreiro específico");
-        System.out.println("2) Listar todos os Guerreiros");
-        System.out.println("0) Voltar");
-
-    }
-
-    private static void menuListarMago() {
-
-        System.out.println("\nMenu lista Personagens.Mago");
-        System.out.println("1) Listar mago específico");
-        System.out.println("2) Listar todos os magos");
-        System.out.println("0) Voltar");
-
-    }
-
-    private static void menuListarSuporte() {
-
-        System.out.println("\nMenu lista Personagens.Suporte");
-        System.out.println("1) Listar suporte específico");
-        System.out.println("2) Listar todos os suportes");
-        System.out.println("0) Voltar");
-
-    }
-
-    private static void menuListarVilao() {
-
-        System.out.println("\nMenu lista Vilão");
-        System.out.println("1) Listar vilão específico");
-        System.out.println("2) Listar todos os Vilões");
-        System.out.println("0) Voltar");
-
-    }
+//    private static void menuListarGuerreiro() {
+//
+//        System.out.println("\nMenu lista Personagens.Guerreiro");
+//        System.out.println("1) Listar guerreiro específico");
+//        System.out.println("2) Listar todos os Guerreiros");
+//        System.out.println("0) Voltar");
+//
+//    }
+//
+//    private static void menuListarMago() {
+//
+//        System.out.println("\nMenu lista Personagens.Mago");
+//        System.out.println("1) Listar mago específico");
+//        System.out.println("2) Listar todos os magos");
+//        System.out.println("0) Voltar");
+//
+//    }
+//
+//    private static void menuListarSuporte() {
+//
+//        System.out.println("\nMenu lista Personagens.Suporte");
+//        System.out.println("1) Listar suporte específico");
+//        System.out.println("2) Listar todos os suportes");
+//        System.out.println("0) Voltar");
+//
+//    }
+//
+//    private static void menuListarVilao() {
+//
+//        System.out.println("\nMenu lista Vilão");
+//        System.out.println("1) Listar vilão específico");
+//        System.out.println("2) Listar todos os Vilões");
+//        System.out.println("0) Voltar");
+//
+//    }
 
     private static void listarGuerreiro() {
 
