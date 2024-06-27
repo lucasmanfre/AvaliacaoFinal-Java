@@ -769,55 +769,84 @@ public class Sistema {
 
     private static void switchListarPersonagem(int opListar) {
         int opEsp;
-        switch (opListar) {
-            case 1:
-                System.out.println("Deseja listar Todos os Guerreiros ou um Específico?");
-                opEsp = Console.lerInt("1 - Todos\n2 - Específico:");
-                if (opEsp == 1) {
-                    listarTodosGuerreiros();
+        try {
+            switch (opListar) {
+                case 1:
+                    try {
+                        CadastroPersonagem.verificarListaGuerreiroVazia();
+                        System.out.println("Deseja listar Todos os Guerreiros ou um Específico?");
+                        opEsp = Console.lerInt("1 - Todos\n2 - Específico:");
+                        if (opEsp == 1) {
+                            listarTodosGuerreiros();
+                        } else {
+                            listarGuerreiro();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
-                }
-                listarGuerreiro();
-                break;
-            case 2:
-                System.out.println("Deseja listar Todos os Magos ou um Específico?");
-                opEsp = Console.lerInt("1 - Todos\n2 - Específico:");
-                if (opEsp == 1) {
-                    listarTodosMagos();
+                case 2:
+                    try {
+                        CadastroPersonagem.verificarListaMagoVazia();
+                        System.out.println("Deseja listar Todos os Magos ou um Específico?");
+                        opEsp = Console.lerInt("1 - Todos\n2 - Específico:");
+                        if (opEsp == 1) {
+                            listarTodosMagos();
+                        } else {
+                            listarMago();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
-                }
-                listarMago();
-                break;
-            case 3:
-                System.out.println("Deseja listar Todos os Suportes ou um Específico?");
-                opEsp = Console.lerInt("1 - Todos\n2 - Específico:");
-                if (opEsp == 1) {
-                    listarTodosSuportes();
+                case 3:
+                    try {
+                        CadastroPersonagem.verificarListaSuporteVazia();
+                        System.out.println("Deseja listar Todos os Suportes ou um Específico?");
+                        opEsp = Console.lerInt("1 - Todos\n2 - Específico:");
+                        if (opEsp == 1) {
+                            listarTodosSuportes();
+                        } else {
+                            listarSuporte();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
-                }
-                listarSuporte();
-                break;
-            case 4:
-                System.out.println("Deseja listar Todos os Vilões ou um Específico?");
-                opEsp = Console.lerInt("1 - Todos\n2 - Específico");
-                if (opEsp == 1) {
-                    listarTodosViloes();
+                case 4:
+                    try {
+                        CadastroPersonagem.verificarListaVilaoVazia();
+                        System.out.println("Deseja listar Todos os Vilões ou um Específico?");
+                        opEsp = Console.lerInt("1 - Todos\n2 - Específico:");
+                        if (opEsp == 1) {
+                            listarTodosViloes();
+                        } else {
+                            listarVilao();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
-                }
-                listarVilao();
-                break;
-            case 5:
-                listarTodosPersonagens();
-                break;
-            case 0:
-                System.out.println("\nVoltando ao menu...");
-                return;
-            default:
-                System.out.println("Opção invalida...");
-                System.out.println("Tente novamente");
-                break;
+                case 5:
+                    try {
+                        listarTodosPersonagens();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 0:
+                    System.out.println("\nVoltando ao menu...");
+                    return;
+                default:
+                    System.out.println("Opção inválida...");
+                    System.out.println("Tente novamente");
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
+
 
     private static void menuListarPersonagem() {
 
@@ -1030,74 +1059,115 @@ public class Sistema {
 
     private static void switchDeletarPersonagem(int opDeletar) throws Exception {
         int opEspDel;
-        switch (opDeletar) {
-            case 1:
-                System.out.println("Deseja deletar Todos os Guerreiros ou um Específico?");
-                opEspDel = Console.lerInt("1 - Todos\n2 - Específico:");
-                if (opEspDel == 1) {
-                    excluirTodosGuerreiros();
+        try {
+            switch (opDeletar) {
+                case 1:
+                    try {
+                        CadastroPersonagem.verificarListaGuerreiroVazia();
+                        System.out.println("Deseja deletar Todos os Guerreiros ou um Específico?");
+                        opEspDel = Console.lerInt("1 - Todos\n2 - Específico:");
+                        if (opEspDel == 1) {
+                            excluirTodosGuerreiros();
+                            break;
+                        }
+                        String nomeG = Console.lerString("Informe o nome do Guerreiro: ");
+                        Guerreiro guerreiro = CadastroPersonagem.buscarGuerreiro(nomeG);
+                        excluirGuerreiro(guerreiro);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
-                }
-                String nomeG = Console.lerString("Informe o nome do Guerreiro: ");
-                Guerreiro guerreiro = CadastroPersonagem.buscarGuerreiro(nomeG);
-                excluirGuerreiro(guerreiro);
-                break;
-            case 2:
-                System.out.println("Deseja deletar Todos os Magos ou um Específico?");
-                opEspDel = Console.lerInt("1 - Todos\n2 - Específico:");
-                if (opEspDel == 1) {
-                    excluirTodosMagos();
+                case 2:
+                    try {
+                        CadastroPersonagem.verificarListaMagoVazia();
+                        System.out.println("Deseja deletar Todos os Magos ou um Específico?");
+                        opEspDel = Console.lerInt("1 - Todos\n2 - Específico:");
+                        if (opEspDel == 1) {
+                            excluirTodosMagos();
+                            break;
+                        }
+                        String nomeM = Console.lerString("Informe o nome do Mago: ");
+                        Mago mago = CadastroPersonagem.buscarMago(nomeM);
+                        excluirMago(mago);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
-                }
-                String nomeM = Console.lerString("Informe o nome do Mago: ");
-                Mago mago = CadastroPersonagem.buscarMago(nomeM);
-                excluirMago(mago);
-                break;
-            case 3:
-                System.out.println("Deseja deletar Todos os Suportes ou um Específico?");
-                opEspDel = Console.lerInt("1 - Todos\n2 - Específico:");
-                if (opEspDel == 1) {
-                    excluirTodosSuportes();
+                case 3:
+                    try {
+                        CadastroPersonagem.verificarListaSuporteVazia();
+                        System.out.println("Deseja deletar Todos os Suportes ou um Específico?");
+                        opEspDel = Console.lerInt("1 - Todos\n2 - Específico:");
+                        if (opEspDel == 1) {
+                            excluirTodosSuportes();
+                            break;
+                        }
+                        String nomeS = Console.lerString("Informe o nome do Suporte: ");
+                        Suporte suporte = CadastroPersonagem.buscarSuporte(nomeS);
+                        excluirSuporte(suporte);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
-                }
-                String nomeS = Console.lerString("Informe o nome do Suporte: ");
-                Suporte suporte = CadastroPersonagem.buscarSuporte(nomeS);
-                excluirSuporte(suporte);
-                break;
-            case 4:
-                System.out.println("Deseja deletar Todos os Vilões ou um Específico?");
-                opEspDel = Console.lerInt("1 - Todos\n2 - Específico");
-                if (opEspDel == 1) {
-                    excluirTodosViloes();
+                case 4:
+                    try {
+                        CadastroPersonagem.verificarListaVilaoVazia();
+                        System.out.println("Deseja deletar Todos os Vilões ou um Específico?");
+                        opEspDel = Console.lerInt("1 - Todos\n2 - Específico");
+                        if (opEspDel == 1) {
+                            excluirTodosViloes();
+                            break;
+                        }
+                        String nomeV = Console.lerString("Informe o nome do Vilão: ");
+                        Vilao vilao = CadastroPersonagem.buscarVilao(nomeV);
+                        excluirVilao(vilao);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
-                }
-                String nomeV = Console.lerString("Informe o nome do Vilão: ");
-                Vilao vilao = CadastroPersonagem.buscarVilao(nomeV);
-                excluirVilao(vilao);
-                break;
-            case 5:
-                excluirTodosGuerreiros();
-                excluirTodosMagos();
-                excluirTodosSuportes();
-                excluirTodosViloes();
-                break;
-            case 0:
-                System.out.println("Voltando...");
-                return;
-            default:
-                System.out.println("Opção invalida...");
-                System.out.println("Tente novamente");
-                break;
+                case 5:
+                    try {
+                        excluirTodosGuerreiros();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    try {
+                        excluirTodosMagos();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    try {
+                        excluirTodosSuportes();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    try {
+                        excluirTodosViloes();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 0:
+                    System.out.println("Voltando...");
+                    return;
+                default:
+                    System.out.println("Opção inválida...");
+                    System.out.println("Tente novamente");
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
+
 
     private static void menuExcluirPersonagem() {
 
         System.out.println("\nMENU EXCLUIR");
-        System.out.println("1) Personagens.Guerreiro");
-        System.out.println("2) Personagens.Mago");
-        System.out.println("3) Personagens.Suporte");
-        System.out.println("4) Personagens.Vilão");
+        System.out.println("1) Personagens Guerreiro");
+        System.out.println("2) Personagens Mago");
+        System.out.println("3) Personagens Suporte");
+        System.out.println("4) Personagens Vilão");
         System.out.println("5) Todos");
         System.out.println("0) Voltar");
 
@@ -1334,7 +1404,6 @@ public class Sistema {
         try {
             Personagem personagem = escolherPersonagem();
             Vilao vilao = escolherVilao();
-            System.out.println("entrou devagarinho");
             Combate combate = new Combate(personagem, vilao);
             combate.iniciarCombate();
         } catch (Exception e) {
